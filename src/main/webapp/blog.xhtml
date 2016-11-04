@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view>
+        <h:form>
+
+            <!-- Page name -->
+            <h:outputLabel value="Blog page"/>
+            <br/><br/>
+
+            <!-- Buttons -->
+            <h:panelGrid columns="3">
+                <h:commandButton value="Search" action="search" immediate="true"/>
+                <h:commandButton value="Settings" action="settings" immediate="true"/>
+                <h:commandButton value="Logout" action="authorization" immediate="true"/>
+            </h:panelGrid>
+            <br/><br/>
+
+            <!-- User information -->
+            <table>
+                <tr>
+                    <td>
+                        <h:graphicImage library="images" name="logo.png"/>
+                    </td>
+                    <td>
+                        <h:outputLabel value="#{sessionBean.currentUser.name}"/>
+                        <br/>
+                        <h:outputLabel value="#{sessionBean.currentUser.age}"/>
+                        <br/>
+                        <h:outputLabel value="#{sessionBean.currentUser.gender}"/>
+                        <br/>
+                        <h:outputLabel value="#{sessionBean.currentUser.city}"/>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Separator -->
+            <h:graphicImage library="images" name="small_line.png"/>
+            <br/><br/>
+
+            <!-- New message -->
+            <h:inputTextarea value="Message" cols="45" rows="4"/>
+            <br/>
+            <h:commandButton value="Publish" action="publish"/>
+            <br/><br/>
+
+            <!-- Separator -->
+            <h:graphicImage library="images" name="small_line.png"/>
+            <br/><br/>
+
+            <!-- Old messages -->
+            <ui:repeat var="message" value="#{blogBean.userMessages}">
+                <table>
+                    <tr>
+                        <td>
+                            <h:graphicImage library="images" name="small_logo.png"/>
+                        </td>
+                        <td>
+                            <h:outputLabel value="#{sessionBean.currentUser.name}"/>
+                            <br/>
+                            <h:outputLabel value="{message.date}"/>
+                            <h:outputLabel value="{message.time}"/>
+                            <br/>
+                            <h:outputLabel value="#{message.text}"/>
+                        </td>
+                    </tr>
+                </table>
+                <h:graphicImage library="images" name="small_line.png"/>
+                <br/>
+            </ui:repeat>
+
+        </h:form>
+    </f:view>
+
+</html>

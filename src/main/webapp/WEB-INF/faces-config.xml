@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+
+    <!-- Authorization page -->
+    <navigation-rule>
+        <from-view-id>/authorization.xhtml</from-view-id>
+
+        <!-- Authorization success -->
+        <navigation-case>
+            <from-action>#{authorizationBean.authorization}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/blog.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- Authorization fail -->
+        <navigation-case>
+            <from-action>#{authorizationBean.authorization}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/authorization.xhtml</to-view-id>
+        </navigation-case>
+
+        <!-- Registration page forward -->
+        <navigation-case>
+            <from-outcome>registration</from-outcome>
+            <to-view-id>/registration.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <!-- Registration page -->
+       <navigation-rule>
+           <from-view-id>/registration.xhtml</from-view-id>
+
+           <!-- Registration success -->
+           <navigation-case>
+               <from-action>#{registrationBean.registration}</from-action>
+               <from-outcome>success</from-outcome>
+               <to-view-id>/blog.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Registration fail -->
+           <navigation-case>
+               <from-action>#{registrationBean.registration}</from-action>
+               <from-outcome>fail</from-outcome>
+               <to-view-id>/registration.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Authorization page forward -->
+           <navigation-case>
+               <from-outcome>authorization</from-outcome>
+               <to-view-id>/authorization.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+
+
+       <!-- Blog page -->
+       <navigation-rule>
+           <from-view-id>/blog.xhtml</from-view-id>
+
+           <!-- Authorization page forward -->
+           <navigation-case>
+               <from-outcome>authorization</from-outcome>
+               <to-view-id>/authorization.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Blog page forward -->
+           <navigation-case>
+               <from-outcome>search</from-outcome>
+               <to-view-id>/search.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Settings page forward -->
+           <navigation-case>
+               <from-outcome>settings</from-outcome>
+               <to-view-id>/settings.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+
+
+       <!-- Settings page -->
+       <navigation-rule>
+           <from-view-id>/settings.xhtml</from-view-id>
+
+           <!-- Authorization page forward -->
+           <navigation-case>
+               <from-outcome>authorization</from-outcome>
+               <to-view-id>/authorization.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Blog page forward -->
+           <navigation-case>
+               <from-outcome>blog</from-outcome>
+               <to-view-id>/blog.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Search page forward -->
+           <navigation-case>
+               <from-outcome>search</from-outcome>
+               <to-view-id>/search.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Settings save success -->
+           <navigation-case>
+               <from-action>#{settingsBean.save}</from-action>
+               <from-outcome>success</from-outcome>
+               <to-view-id>/settings.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Settings save fail -->
+           <navigation-case>
+               <from-action>#{settingsBean.save}</from-action>
+               <from-outcome>fail</from-outcome>
+               <to-view-id>/settings.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Delete user success -->
+           <navigation-case>
+               <from-action>#{settingsBean.deleteUser}</from-action>
+               <from-outcome>success</from-outcome>
+               <to-view-id>/authorization.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Delete user fail -->
+           <navigation-case>
+               <from-action>#{settingsBean.deleteUser}</from-action>
+               <from-outcome>fail</from-outcome>
+               <to-view-id>/settings.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+
+
+       <!-- Search page -->
+       <navigation-rule>
+           <from-view-id>/search.xhtml</from-view-id>
+
+           <!-- Authorization page forward -->
+           <navigation-case>
+               <from-outcome>authorization</from-outcome>
+               <to-view-id>/authorization.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Blog page forward -->
+           <navigation-case>
+               <from-outcome>blog</from-outcome>
+               <to-view-id>/blog.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- User view page forward -->
+           <navigation-case>
+               <from-outcome>search</from-outcome>
+               <to-view-id>/search.xhtml</to-view-id>
+           </navigation-case>
+       </navigation-rule>
+
+</faces-config>

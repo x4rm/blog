@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view>
+        <h:form>
+
+            <!-- Page name -->
+            <h:outputLabel value="Settings page"/>
+            <br/><br/>
+
+            <!-- Buttons -->
+            <h:panelGrid columns="3">
+                <h:commandButton value="Blog" action="blog" immediate="true"/>
+                <h:commandButton value="Search" action="search" immediate="true"/>
+                <h:commandButton value="Logout" action="authorization" immediate="true"/>
+            </h:panelGrid>
+            <br/><br/>
+
+            <!-- Fields -->
+            <h:panelGrid columns="2">
+
+                <h:outputLabel value="Login"/>
+                <!-- TODO: Change to #{sessionBean.currentUser.login} -->
+                <h:inputText id="login" value="#{settingsBean.sessionBean.currentUser.login}"/>
+
+                <h:outputLabel value="Password"/>
+                <h:inputText id="password" value="#{settingsBean.sessionBean.currentUser.password}"/>
+
+                <h:outputText value="Name"/>
+                <h:inputText id="name" value="#{settingsBean.sessionBean.currentUser.name}"/>
+
+                <h:outputText value="Age"/>
+                <h:inputText id="age" value="#{settingsBean.sessionBean.currentUser.age}"/>
+
+                <h:outputText value="Gender"/>
+                <h:inputText id="gender" value="#{settingsBean.sessionBean.currentUser.gender}"/>
+
+                <h:outputText value="City"/>
+                <h:inputText id="city" value="#{settingsBean.sessionBean.currentUser.city}"/>
+
+            </h:panelGrid>
+            <br/>
+
+            <!-- Buttons -->
+            <h:panelGrid columns="2">
+                <h:commandButton value="Delete account" action="#{settingsBean.deleteUser}"/>
+                <h:commandButton value="Save" action="#{settingsBean.saveUser}"/>
+            </h:panelGrid>
+
+        </h:form>
+    </f:view>
+
+</html>
