@@ -44,9 +44,9 @@
             <br/><br/>
 
             <!-- New message -->
-            <h:inputTextarea id="message" cols="42" rows="2"/>
+            <h:inputTextarea id="message" value="#{blogBean.message.text}" cols="42" rows="2"/>
             <br/>
-            <h:commandButton value="Publish" action="publish"/>
+            <h:commandButton value="Publish" action="#{blogBean.publishMessage}"/>
             <br/><br/>
 
             <!-- Separator -->

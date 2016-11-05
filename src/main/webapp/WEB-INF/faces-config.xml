@@ -78,6 +78,21 @@
                <from-outcome>settings</from-outcome>
                <to-view-id>/settings.xhtml</to-view-id>
            </navigation-case>
+
+           <!-- Publish message success -->
+           <navigation-case>
+               <from-action>#{blogBean.publishMessage}</from-action>
+               <from-outcome>success</from-outcome>
+               <to-view-id>/blog.xhtml</to-view-id>
+           </navigation-case>
+
+           <!-- Publish message fail -->
+           <navigation-case>
+               <from-action>#{blogBean.publishMessage}</from-action>
+               <from-outcome>fail</from-outcome>
+               <to-view-id>/blog.xhtml</to-view-id>
+           </navigation-case>
+
        </navigation-rule>
 
 

@@ -2,6 +2,7 @@ package com.blog.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -18,10 +19,11 @@ public class Message implements Serializable {
 
     // TODO: Delete one time field and db table row.
     @Column(name = "DATE")
-    private Date date;
+//    private Date date;
+    private Calendar date;
 
-    @Column(name = "TIME")
-    private Date time;
+//    @Column(name = "TIME")
+//    private Date time;
 
     private User user;
 
@@ -57,21 +59,21 @@ public class Message implements Serializable {
         this.text = text;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 
-    public Date getTime() {
+    /*public Date getTime() {
         return time;
     }
 
     public void setTime(Date time) {
         this.time = time;
-    }
+    }*/
 
     public String getReadableTimeForm() {
         return readableTimeForm;
