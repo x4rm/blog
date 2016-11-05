@@ -17,13 +17,19 @@ public class AuthorizationBean implements Serializable {
     private String login;
     private String password;
 
-    /* Authorization. Get user with entered login, password */
+    /*
+    * AUTHORIZATION
+    * Get user by login, password.
+    * TODO: Output exception message.
+    * */
     public String authorization() {
         try {
             sessionBean.setCurrentUser(MockupDBUtil.getUser(login, password));
         } catch (Exception e) {
+            System.out.println("### Exception: " + e.getMessage());
             return "fail";
         }
+        password = "";
         return "success";
     }
 

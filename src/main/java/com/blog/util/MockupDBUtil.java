@@ -8,18 +8,24 @@ import java.util.Date;
 
 public class MockupDBUtil {
 
-    public static User getUser(String login, String password) {
-        /* TODO: Get user with entered login, password */
-        /* TODO: Generate exception if no user with entered login, password */
-        /* TODO: Output gender info */
-        User user = new User();
-        user.setLogin("litz");
-        user.setPassword("123");
-        user.setName("Ann Litz");
-        user.setAge(21);
-        user.setCity("Monaco");
-        user.setGender(1);
-        return user;
+    /*
+    * GET USER
+    * TODO: "Get user by login and password" method.
+    * TODO: Generate exception when fail.
+    * */
+    public static User getUser(String login, String password) throws Exception {
+        if ("litz".equals(login) && "123".equals(password)) {
+            User user = new User();
+            user.setLogin("litz");
+            user.setPassword("123");
+            user.setName("Ann Litz");
+            user.setAge(21);
+            user.setCity("Monaco");
+            user.setGender(1);
+            return user;
+        } else {
+            throw new Exception("No user with such login and password.");
+        }
     }
 
     public static void saveUser(User user) {

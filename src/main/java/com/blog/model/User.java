@@ -26,6 +26,7 @@ public class User implements Serializable {
     @Column(name = "AGE")
     private Integer age;
 
+    /* TODO: Gender type */
     @Column(name = "GENDER")
     private Integer gender;
 
