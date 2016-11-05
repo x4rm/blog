@@ -16,13 +16,19 @@ public class RegistrationBean {
 
     private User user = new User();
 
-    /* Registration. Save new user */
+    /*
+    * REGISTRATION
+    * Save user.
+    * TODO: Output exception message.
+    * */
     public String registration() {
         try {
             MockupDBUtil.saveUser(user);
         } catch (Exception e) {
+            System.out.println("### Exception: " + e.getMessage());
             return "fail";
         }
+        user = new User();
         return "success";
     }
 

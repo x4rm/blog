@@ -28,9 +28,15 @@ public class MockupDBUtil {
         }
     }
 
-    public static void saveUser(User user) {
-        /* TODO: Save user to db */
-        /* TODO: Generate exception if login is not unique */
+    /*
+    * SAVE USER
+    * TODO: "Save user" method.
+    * TODO: Generate exception when fail.
+    * */
+    public static void saveUser(User user) throws Exception {
+        if ("litz".equals(user.getLogin())) {
+            throw new Exception("Login must be unique.");
+        }
     }
 
     public static ArrayList<Message> getUserMessages(User user) {

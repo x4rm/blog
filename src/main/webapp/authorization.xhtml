@@ -14,12 +14,15 @@
             <br/><br/>
 
             <!-- Fields -->
+            <!-- TODO: validation message. -->
             <h:panelGrid columns="2">
+
                 <h:outputLabel value="Login"/>
-                <h:inputText id="login" value="#{authorizationBean.login}"/>
+                <h:inputText id="login" value="#{authorizationBean.login}" required="true"/>
 
                 <h:outputLabel value="Password"/>
-                <h:inputText id="password" value="#{authorizationBean.password}"/>
+                <h:inputSecret id="password" value="#{authorizationBean.password}" required="true"/>
+
             </h:panelGrid>
             <br/>
 

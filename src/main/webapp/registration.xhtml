@@ -16,24 +16,28 @@
 
 
             <!-- Fields -->
+            <!-- TODO: validation message. -->
+            <!-- TODO: required type of value. -->
             <h:panelGrid columns="2">
+
                 <h:outputLabel value="Login"/>
-                <h:inputText id="login" value="#{registrationBean.user.login}"/>
+                <h:inputText id="login" value="#{registrationBean.user.login}" required="true"/>
 
                 <h:outputLabel value="Password"/>
-                <h:inputText id="password" value="#{registrationBean.user.password}"/>
+                <h:inputSecret id="password" value="#{registrationBean.user.password}" required="true"/>
 
                 <h:outputText value="Name"/>
-                <h:inputText id="name" value="#{registrationBean.user.name}"/>
+                <h:inputText id="name" value="#{registrationBean.user.name}" required="true"/>
 
                 <h:outputText value="Age"/>
-                <h:inputText id="age" value="#{registrationBean.user.age}"/>
+                <h:inputText id="age" value="#{registrationBean.user.age}" required="true"/>
 
                 <h:outputText value="Gender"/>
-                <h:inputText id="gender" value="#{registrationBean.user.gender}"/>
+                <h:inputText id="gender" value="#{registrationBean.user.gender}" required="true"/>
 
                 <h:outputText value="City"/>
-                <h:inputText id="city" value="#{registrationBean.user.city}"/>
+                <h:inputText id="city" value="#{registrationBean.user.city}" required="true"/>
+
             </h:panelGrid>
             <br/>
 
