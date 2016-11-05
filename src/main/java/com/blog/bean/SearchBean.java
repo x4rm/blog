@@ -15,8 +15,19 @@ public class SearchBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    public ArrayList<User> getUsers() {
-        return MockupDBUtil.getUsers(sessionBean.getSearchingUser());
+    /*
+    * GET USERS
+    * TODO: Output exception and result message.
+    * */
+    public String search() {
+        try {
+            sessionBean.setSearchResults(MockupDBUtil.getUsers(sessionBean.getSearchingUser()));
+            return "success";
+        } catch (Exception e) {
+            sessionBean.setSearchResults(new ArrayList<User>());
+            System.out.println("### Exception: " + e.getMessage());
+            return "fail";
+        }
     }
 
     public SessionBean getSessionBean() {

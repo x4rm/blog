@@ -78,10 +78,25 @@ public class MockupDBUtil {
         }
     }
 
-    public static ArrayList<User> getUsers(User user) {
-        /* TODO: Generate exception if no users with entered attributes */
+    /*
+    * GET USERS
+    * TODO: "Get users with equals fields values" method.
+    * */
+    public static ArrayList<User> getUsers(User user) throws Exception {
         ArrayList<User> users = new ArrayList<User>();
-        if (user != null) {
+
+        if ("".equals(user.getName())) {
+            throw new Exception("No found.");
+
+        } else if ("ann".equals(user.getName())) {
+            User user1 = new User();
+            user1.setName("Ann Litz");
+            user1.setAge(21);
+            user1.setCity("Monaco");
+            user1.setGender(1);
+            users.add(user1);
+
+        } else if ("all".equals(user.getName())){
             User user1 = new User();
             user1.setName("Ann Litz");
             user1.setAge(21);
@@ -106,6 +121,5 @@ public class MockupDBUtil {
         }
         return users;
     }
-
 
 }

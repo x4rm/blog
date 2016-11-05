@@ -25,22 +25,22 @@
             <h:panelGrid columns="2">
 
                 <h:outputLabel value="Login"/>
-                <h:inputText id="login" value="#{settingsBean.sessionBean.currentUser.login}"/>
+                <h:inputText id="login" value="#{sessionBean.currentUser.login}"/>
 
                 <h:outputLabel value="Password"/>
-                <h:inputSecret id="password" value="#{settingsBean.sessionBean.currentUser.password}"/>
+                <h:inputSecret id="password" value="#{sessionBean.currentUser.password}"/>
 
                 <h:outputText value="Name"/>
-                <h:inputText id="name" value="#{settingsBean.sessionBean.currentUser.name}"/>
+                <h:inputText id="name" value="#{sessionBean.currentUser.name}"/>
 
                 <h:outputText value="Age"/>
-                <h:inputText id="age" value="#{settingsBean.sessionBean.currentUser.age}"/>
+                <h:inputText id="age" value="#{sessionBean.currentUser.age}"/>
 
                 <h:outputText value="Gender"/>
-                <h:inputText id="gender" value="#{settingsBean.sessionBean.currentUser.gender}"/>
+                <h:inputText id="gender" value="#{sessionBean.currentUser.gender}"/>
 
                 <h:outputText value="City"/>
-                <h:inputText id="city" value="#{settingsBean.sessionBean.currentUser.city}"/>
+                <h:inputText id="city" value="#{sessionBean.currentUser.city}"/>
 
             </h:panelGrid>
             <br/>

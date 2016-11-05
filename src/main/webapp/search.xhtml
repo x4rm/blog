@@ -23,8 +23,31 @@
 
             <table>
                 <tr>
+
                     <td>
-                        <ui:repeat var="user" value="#{searchBean.users}">
+                        <!-- Fields -->
+                        <h:panelGrid>
+                            <h:outputText value="Name"/>
+                            <!-- TODO: Change to #{sessionBean.searchingUser.name} -->
+                            <h:inputText id="name" value="#{sessionBean.searchingUser.name}"/>
+
+                            <h:outputText value="Age"/>
+                            <h:inputText id="age" value="#{sessionBean.searchingUser.age}"/>
+
+                            <h:outputText value="Gender"/>
+                            <h:inputText id="gender" value="#{sessionBean.searchingUser.gender}"/>
+
+                            <h:outputText value="City"/>
+                            <h:inputText id="city" value="#{sessionBean.searchingUser.city}"/>
+                        </h:panelGrid>
+                        <br/>
+
+                        <!-- Buttons -->
+                        <h:commandButton value="Search" action="#{searchBean.search}"/>
+                    </td>
+
+                    <td>
+                        <ui:repeat var="user" value="#{sessionBean.searchResults}">
 
                             <table>
                                 <tr>
@@ -48,27 +71,6 @@
                         </ui:repeat>
                     </td>
 
-                    <td>
-                        <!-- Fields -->
-                        <h:panelGrid>
-                            <h:outputText value="Name"/>
-                            <!-- TODO: Change to #{sessionBean.searchingUser.name} -->
-                            <h:inputText id="name" value="#{searchBean.sessionBean.searchingUser.name}"/>
-
-                            <h:outputText value="Age"/>
-                            <h:inputText id="age" value="#{searchBean.sessionBean.searchingUser.age}"/>
-
-                            <h:outputText value="Gender"/>
-                            <h:inputText id="gender" value="#{searchBean.sessionBean.searchingUser.gender}"/>
-
-                            <h:outputText value="City"/>
-                            <h:inputText id="city" value="#{searchBean.sessionBean.searchingUser.city}"/>
-                        </h:panelGrid>
-                        <br/>
-
-                        <!-- Buttons -->
-                        <h:commandButton value="Search" action="search"/>
-                    </td>
                 </tr>
             </table>
 
