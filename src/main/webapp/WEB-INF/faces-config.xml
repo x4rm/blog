@@ -120,14 +120,14 @@
 
            <!-- Settings save success -->
            <navigation-case>
-               <from-action>#{settingsBean.save}</from-action>
+               <from-action>#{settingsBean.saveUser}</from-action>
                <from-outcome>success</from-outcome>
                <to-view-id>/settings.xhtml</to-view-id>
            </navigation-case>
 
            <!-- Settings save fail -->
            <navigation-case>
-               <from-action>#{settingsBean.save}</from-action>
+               <from-action>#{settingsBean.saveUser}</from-action>
                <from-outcome>fail</from-outcome>
                <to-view-id>/settings.xhtml</to-view-id>
            </navigation-case>

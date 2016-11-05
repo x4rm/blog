@@ -30,6 +30,7 @@ public class MockupDBUtil {
     /*
     * SAVE USER
     * TODO: "Save user" method.
+    * TODO: Rewrite user data method.
     * TODO: Generate exception when fail.
     * */
     public static void saveUser(User user) throws Exception {
@@ -67,8 +68,14 @@ public class MockupDBUtil {
         return messages;
     }
 
-    public static void deleteUser(User user) {
-        /* TODO: Delete user */
+    /*
+    * DELETE USER
+    * TODO: "Delete user" method.
+    * */
+    public static void deleteUser(User user) throws Exception {
+        if ("litz".equals(user.getLogin())) {
+            throw new Exception("Wrong situation");
+        }
     }
 
     public static ArrayList<User> getUsers(User user) {

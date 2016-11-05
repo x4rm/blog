@@ -25,11 +25,10 @@
             <h:panelGrid columns="2">
 
                 <h:outputLabel value="Login"/>
-                <!-- TODO: Change to #{sessionBean.currentUser.login} -->
                 <h:inputText id="login" value="#{settingsBean.sessionBean.currentUser.login}"/>
 
                 <h:outputLabel value="Password"/>
-                <h:inputText id="password" value="#{settingsBean.sessionBean.currentUser.password}"/>
+                <h:inputSecret id="password" value="#{settingsBean.sessionBean.currentUser.password}"/>
 
                 <h:outputText value="Name"/>
                 <h:inputText id="name" value="#{settingsBean.sessionBean.currentUser.name}"/>

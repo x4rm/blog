@@ -13,22 +13,32 @@ public class SettingsBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    /* Save user */
+    /*
+    * SAVE USER
+    * TODO: Output exception and result message.
+    * */
     public String saveUser() {
-        /* TODO: Show message after save */
         try {
             MockupDBUtil.saveUser(sessionBean.getCurrentUser());
         } catch (Exception e) {
+            System.out.println("### Exception: " + e.getMessage());
             return "fail";
         }
         return "success";
     }
 
-    /* Delete user */
+    /*
+    * DELETE USER
+    * TODO: Redirect after delete.
+    * TODO: Output exception and result message.
+    * */
     public String deleteUser() {
-        /* TODO: Redirect after delete */
-        /* TODO: Show message after delete */
-        MockupDBUtil.deleteUser(sessionBean.getCurrentUser());
+        try {
+            MockupDBUtil.deleteUser(sessionBean.getCurrentUser());
+        } catch (Exception e) {
+            System.out.println("### Exception: " + e.getMessage());
+            return "fail";
+        }
         return "success";
     }
 
