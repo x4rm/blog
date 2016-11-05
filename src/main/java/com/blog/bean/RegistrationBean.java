@@ -24,6 +24,7 @@ public class RegistrationBean {
     public String registration() {
         try {
             MockupDBUtil.saveUser(user);
+            sessionBean.setCurrentUser(user);
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";

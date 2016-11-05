@@ -14,6 +14,9 @@ public class Message implements Serializable {
     @Column(name = "TEXT")
     private String text;
 
+    private String readableTimeForm;
+
+    // TODO: Delete one time field and db table row.
     @Column(name = "DATE")
     private Date date;
 
@@ -70,4 +73,11 @@ public class Message implements Serializable {
         this.time = time;
     }
 
+    public String getReadableTimeForm() {
+        return readableTimeForm;
+    }
+
+    public void setReadableTimeForm(String readableTimeForm) {
+        this.readableTimeForm = readableTimeForm;
+    }
 }

@@ -3,8 +3,7 @@ package com.blog.util;
 import com.blog.model.Message;
 import com.blog.model.User;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class MockupDBUtil {
 
@@ -39,23 +38,32 @@ public class MockupDBUtil {
         }
     }
 
+    /*
+    * GET USER MESSAGES
+    * TODO: "Get user messages" method.
+    * TODO: Convert db date type to calendar type;
+    * */
     public static ArrayList<Message> getUserMessages(User user) {
-        /* TODO: Get user's messages */
         ArrayList<Message> messages = new ArrayList<Message>();
-        Message message1 = new Message();
-        message1.setText("Nanana.");
 
-        /* TODO: Save and output dates */
-        message1.setDate(new Date(2014, 10, 2));
-        message1.setTime(new Date(2014, 10, 2));
+        if ("litz".equals(user.getLogin())) {
 
-        Message message2 = new Message();
-        message2.setText("Tratata.");
-        message2.setDate(new Date(2014, 10, 2));
-        message2.setTime(new Date(2014, 10, 2));
+            Message message1 = new Message();
+            message1.setText("Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis.");
 
-        messages.add(message1);
-        messages.add(message2);
+            Message message2 = new Message();
+            message2.setText("Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis.");
+
+            Calendar calendar = Calendar.getInstance();
+            Formatter formatter = new Formatter();
+            formatter.format("%tk:%tM %te.%tm.%tY", calendar, calendar, calendar, calendar, calendar);
+
+            message1.setReadableTimeForm(formatter.toString());
+            message2.setReadableTimeForm(formatter.toString());
+
+            messages.add(message1);
+            messages.add(message2);
+        }
         return messages;
     }
 

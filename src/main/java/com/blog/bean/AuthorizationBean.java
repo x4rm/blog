@@ -29,7 +29,7 @@ public class AuthorizationBean implements Serializable {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";
         }
-        password = "";
+        login = password = "";
         return "success";
     }
 

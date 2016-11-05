@@ -33,6 +33,7 @@ public class User implements Serializable {
     @Column(name = "CITY")
     private String city;
 
+    // TODO: Set ArrayList type.
     private Set<Message> messages = new HashSet<Message>(0);
 
     public User() {

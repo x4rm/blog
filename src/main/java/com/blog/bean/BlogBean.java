@@ -15,8 +15,17 @@ public class BlogBean {
     @ManagedProperty(value = "#{sessionBean}")
     private SessionBean sessionBean;
 
-    /* Get user's messages */
+    /*
+    * GET USER MESSAGES
+    * Get message history.
+    * TODO: Optimize getMessages().isEmpty() situation.
+    * */
     public ArrayList<Message> getUserMessages() {
+//        if (sessionBean.getCurrentUser().getMessages().isEmpty()) {
+//            sessionBean.getCurrentUser().setMessages();
+//        }
+//        return sessionBean.getCurrentUser().getMessages();
+
         return MockupDBUtil.getUserMessages(sessionBean.getCurrentUser());
     }
 
