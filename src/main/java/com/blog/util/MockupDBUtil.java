@@ -54,7 +54,7 @@ public class MockupDBUtil {
     public static ArrayList<User> getUsers(User user) {
         /* TODO: Generate exception if no users with entered attributes */
         ArrayList<User> users = new ArrayList<User>();
-        if (user != null && user.getAge()<35) {
+        if (user != null) {
             User user1 = new User();
             user1.setName("Ann Litz");
             user1.setAge(21);
