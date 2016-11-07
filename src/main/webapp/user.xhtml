@@ -10,11 +10,12 @@
         <h:form>
 
             <!-- Page name -->
-            <h:outputLabel value="Blog page"/>
+            <h:outputLabel value="Selected user page"/>
             <br/><br/>
 
             <!-- Buttons -->
-            <h:panelGrid columns="3">
+            <h:panelGrid columns="4">
+                <h:commandButton value="Blog" action="blog" immediate="true"/>
                 <h:commandButton value="Search" action="search" immediate="true"/>
                 <h:commandButton value="Settings" action="settings" immediate="true"/>
                 <h:commandButton value="Logout" action="authorization" immediate="true"/>
@@ -28,13 +29,13 @@
                         <h:graphicImage library="images" name="logo.png"/>
                     </td>
                     <td>
-                        <h:outputLabel value="#{sessionBean.currentUser.name}"/>
+                        <h:outputLabel value="#{sessionBean.selectedUser.name}"/>
                         <br/>
-                        <h:outputLabel value="#{sessionBean.currentUser.age}"/>
+                        <h:outputLabel value="#{sessionBean.selectedUser.age}"/>
                         <br/>
-                        <h:outputLabel value="#{sessionBean.currentUser.gender}"/>
+                        <h:outputLabel value="#{sessionBean.selectedUser.gender}"/>
                         <br/>
-                        <h:outputLabel value="#{sessionBean.currentUser.city}"/>
+                        <h:outputLabel value="#{sessionBean.selectedUser.city}"/>
                     </td>
                 </tr>
             </table>
@@ -43,27 +44,16 @@
             <h:graphicImage library="images" name="small_line.png"/>
             <br/><br/>
 
-            <!-- New message -->
-            <!-- TODO: size of value and validation message. -->
-            <h:inputTextarea id="message" value="#{blogBean.message.text}" cols="42" rows="2"/>
-            <br/>
-            <h:commandButton value="Publish" action="#{blogBean.publishMessage}"/>
-            <br/><br/>
-
-            <!-- Separator -->
-            <h:graphicImage library="images" name="small_line.png"/>
-            <br/><br/>
-
             <!-- Messages history -->
             <!-- TODO: Output "No messages". -->
-            <ui:repeat var="message" value="#{blogBean.getUserMessages(sessionBean.currentUser)}">
+            <ui:repeat var="message" value="#{blogBean.getUserMessages(sessionBean.selectedUser)}">
                 <table>
                     <tr>
                         <td>
                             <h:graphicImage library="images" name="small_logo.png"/>
                         </td>
                         <td>
-                            <h:outputLabel value="#{sessionBean.currentUser.name}"/>
+                            <h:outputLabel value="#{sessionBean.selectedUser.name}"/>
                             <br/>
                             <h:outputLabel value="#{message.readableTimeForm}"/>
                             <br/>

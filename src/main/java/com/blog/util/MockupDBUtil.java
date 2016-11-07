@@ -64,7 +64,24 @@ public class MockupDBUtil {
 
             messages.add(message1);
             messages.add(message2);
+        } else if ("lil".equals(user.getLogin())) {
+            Message message1 = new Message();
+            message1.setText("Lil. Lil Lil Lil");
+
+            Message message2 = new Message();
+            message2.setText("Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis.");
+
+            Calendar calendar = Calendar.getInstance();
+            Formatter formatter = new Formatter();
+            formatter.format("%tk:%tM %te.%tm.%tY", calendar, calendar, calendar, calendar, calendar);
+
+            message1.setReadableTimeForm(formatter.toString());
+            message2.setReadableTimeForm(formatter.toString());
+
+            messages.add(message1);
+            messages.add(message2);
         }
+
         return messages;
     }
 
@@ -98,18 +115,21 @@ public class MockupDBUtil {
 
         } else if ("all".equals(user.getName())){
             User user1 = new User();
+            user1.setLogin("litz");
             user1.setName("Ann Litz");
             user1.setAge(21);
             user1.setCity("Monaco");
             user1.setGender(1);
 
             User user2 = new User();
+            user2.setLogin("kate");
             user2.setName("Kate Winst");
             user2.setAge(26);
             user2.setCity("Lion");
             user2.setGender(1);
 
             User user3 = new User();
+            user3.setLogin("lil");
             user3.setName("Lil Rout");
             user3.setAge(32);
             user3.setCity("Panama");

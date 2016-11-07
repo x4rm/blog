@@ -13,6 +13,7 @@ public class SessionBean {
 
     private User currentUser = new User();
     private User searchingUser = new User();
+    private User selectedUser = new User();
     private ArrayList<User> searchResults = new ArrayList<User>();
 
     @PostConstruct
@@ -41,5 +42,13 @@ public class SessionBean {
 
     public void setSearchResults(ArrayList<User> searchResults) {
         this.searchResults = searchResults;
+    }
+
+    public User getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void setSelectedUser(User selectedUser) {
+        this.selectedUser = selectedUser;
     }
 }

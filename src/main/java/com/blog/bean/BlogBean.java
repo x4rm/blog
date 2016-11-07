@@ -1,6 +1,7 @@
 package com.blog.bean;
 
 import com.blog.model.Message;
+import com.blog.model.User;
 import com.blog.util.MockupDBUtil;
 
 import javax.faces.bean.ManagedBean;
@@ -23,12 +24,13 @@ public class BlogBean {
     * GET USER MESSAGES
     * Get message history.
     * TODO: Synchronization page-session-db problem.
+    * TODO: Replace method.
     * */
-    public ArrayList<Message> getUserMessages() {
-        if (sessionBean.getCurrentUser().getMessages().isEmpty()) {
-            sessionBean.getCurrentUser().setMessages(MockupDBUtil.getUserMessages(sessionBean.getCurrentUser()));
+    public ArrayList<Message> getUserMessages(User user) {
+        if (user.getMessages().isEmpty()) {
+            user.setMessages(MockupDBUtil.getUserMessages(user));
         }
-        return sessionBean.getCurrentUser().getMessages();
+        return user.getMessages();
     }
 
     /*

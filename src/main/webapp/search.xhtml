@@ -28,7 +28,6 @@
                         <!-- Fields -->
                         <h:panelGrid>
                             <h:outputText value="Name"/>
-                            <!-- TODO: Change to #{sessionBean.searchingUser.name} -->
                             <h:inputText id="name" value="#{sessionBean.searchingUser.name}"/>
 
                             <h:outputText value="Age"/>
@@ -51,7 +50,8 @@
 
                             <table>
                                 <tr>
-                                    <td><!-- User -->
+                                    <td>
+                                        <!-- User -->
                                         <h:graphicImage library="images" name="logo.png"/>
                                     </td>
                                     <td>
@@ -62,12 +62,17 @@
                                         <h:outputLabel value="#{user.gender}"/>
                                         <br/>
                                         <h:outputLabel value="#{user.city}"/>
+                                        <br/>
+                                        <h:commandButton value="view" action="#{searchBean.view}" >
+                                            <f:setPropertyActionListener target="#{searchBean.selectedUserLogin}" value="#{user.login}" />
+                                        </h:commandButton>
                                     </td>
                                 </tr>
                             </table>
                             <!-- Separator -->
                             <h:graphicImage library="images" name="small_line.png"/>
                             <br/>
+
                         </ui:repeat>
                     </td>
 
