@@ -15,6 +15,7 @@ public class Message implements Serializable {
     @Column(name = "TEXT")
     private String text;
 
+    /* TODO: Make time field. */
     private String readableTimeForm;
 
     // TODO: Delete one time field and db table row.

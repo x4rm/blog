@@ -1,5 +1,6 @@
 package com.blog.bean;
 
+import com.blog.util.DBUtil;
 import com.blog.util.MockupDBUtil;
 
 import javax.faces.bean.ManagedBean;
@@ -19,7 +20,9 @@ public class SettingsBean {
     * */
     public String saveUser() {
         try {
-            MockupDBUtil.saveUser(sessionBean.getCurrentUser());
+//            MockupDBUtil.saveUser(sessionBean.getCurrentUser());
+            DBUtil.saveUser(sessionBean.getCurrentUser());
+
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";
@@ -34,7 +37,9 @@ public class SettingsBean {
     * */
     public String deleteUser() {
         try {
-            MockupDBUtil.deleteUser(sessionBean.getCurrentUser());
+//            MockupDBUtil.deleteUser(sessionBean.getCurrentUser());
+            DBUtil.deleteUser(sessionBean.getCurrentUser());
+
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";

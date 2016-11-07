@@ -15,6 +15,7 @@ public class MockupDBUtil {
     public static User getUser(String login, String password) throws Exception {
         if ("litz".equals(login) && "123".equals(password)) {
             User user = new User();
+            user.setId(1);
             user.setLogin("litz");
             user.setPassword("123");
             user.setName("Ann Litz");
@@ -39,20 +40,30 @@ public class MockupDBUtil {
         }
     }
 
+
+
+
+    /* SET - LIST */
+
     /*
     * GET USER MESSAGES
     * TODO: "Get user messages" method.
     * TODO: Convert db date type to calendar type;
     * */
     public static ArrayList<Message> getUserMessages(User user) {
-        ArrayList<Message> messages = new ArrayList<Message>();
+    ArrayList<Message> messages = new ArrayList<Message>();
+
+//    public static Set<Message> getUserMessages(User user) {
+//        Set<Message> messages = new HashSet<Message>();
 
         if ("litz".equals(user.getLogin())) {
 
             Message message1 = new Message();
+            message1.setId(1);
             message1.setText("Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis.");
 
             Message message2 = new Message();
+            message2.setId(2);
             message2.setText("Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis.");
 
             Calendar calendar = Calendar.getInstance();
@@ -66,9 +77,11 @@ public class MockupDBUtil {
             messages.add(message2);
         } else if ("lil".equals(user.getLogin())) {
             Message message1 = new Message();
+            message1.setId(1);
             message1.setText("Lil. Lil Lil Lil");
 
             Message message2 = new Message();
+            message2.setId(2);
             message2.setText("Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis.");
 
             Calendar calendar = Calendar.getInstance();
@@ -82,6 +95,9 @@ public class MockupDBUtil {
             messages.add(message2);
         }
 
+        for (Message message : messages) {
+            System.out.println("### " + message.getText());
+        }
         return messages;
     }
 
@@ -95,6 +111,11 @@ public class MockupDBUtil {
         }
     }
 
+
+
+
+    /* SET - LIST */
+
     /*
     * GET USERS
     * TODO: "Get users with equals fields values" method.
@@ -102,11 +123,15 @@ public class MockupDBUtil {
     public static ArrayList<User> getUsers(User user) throws Exception {
         ArrayList<User> users = new ArrayList<User>();
 
+//    public static Set<User> getUsers(User user) throws Exception {
+//        Set<User> users = new HashSet<User>();
+
         if ("".equals(user.getName())) {
             throw new Exception("No found.");
 
         } else if ("ann".equals(user.getName())) {
             User user1 = new User();
+            user1.setId(1);
             user1.setName("Ann Litz");
             user1.setAge(21);
             user1.setCity("Monaco");
@@ -115,6 +140,7 @@ public class MockupDBUtil {
 
         } else if ("all".equals(user.getName())){
             User user1 = new User();
+            user1.setId(2);
             user1.setLogin("litz");
             user1.setName("Ann Litz");
             user1.setAge(21);
@@ -122,6 +148,7 @@ public class MockupDBUtil {
             user1.setGender(1);
 
             User user2 = new User();
+            user2.setId(2);
             user2.setLogin("kate");
             user2.setName("Kate Winst");
             user2.setAge(26);
@@ -129,6 +156,7 @@ public class MockupDBUtil {
             user2.setGender(1);
 
             User user3 = new User();
+            user3.setId(3);
             user3.setLogin("lil");
             user3.setName("Lil Rout");
             user3.setAge(32);

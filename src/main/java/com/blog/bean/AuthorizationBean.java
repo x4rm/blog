@@ -1,5 +1,6 @@
 package com.blog.bean;
 
+import com.blog.util.DBUtil;
 import com.blog.util.MockupDBUtil;
 
 import javax.faces.bean.ManagedBean;
@@ -24,7 +25,9 @@ public class AuthorizationBean implements Serializable {
     * */
     public String authorization() {
         try {
-            sessionBean.setCurrentUser(MockupDBUtil.getUser(login, password));
+//            sessionBean.setCurrentUser(MockupDBUtil.getUser(login, password));
+            sessionBean.setCurrentUser(DBUtil.getUser(login, password));
+            System.out.println("# user " + sessionBean.getCurrentUser().getLogin());
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());
             return "fail";

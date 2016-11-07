@@ -12,5 +12,7 @@ public interface UserDAO {
     public User getUserById(Integer user_id) throws SQLException;
     public Collection getAllUsers() throws SQLException;
     public void deleteUser(User user) throws SQLException;
+    public Collection getUsersByCriteria(User user) throws SQLException;
+    public User getUserByLoginPassword(String login, String password) throws SQLException;
 
 }

@@ -1,6 +1,7 @@
 package com.blog.bean;
 
 import com.blog.model.User;
+import com.blog.util.DBUtil;
 import com.blog.util.MockupDBUtil;
 
 import javax.faces.bean.ManagedBean;
@@ -23,7 +24,9 @@ public class RegistrationBean {
     * */
     public String registration() {
         try {
-            MockupDBUtil.saveUser(user);
+//            MockupDBUtil.saveUser(user);
+            DBUtil.addUser(user);
+
             sessionBean.setCurrentUser(user);
         } catch (Exception e) {
             System.out.println("### Exception: " + e.getMessage());

@@ -3,7 +3,9 @@ package com.blog.dao.impl;
 import com.blog.dao.UserDAO;
 import com.blog.model.User;
 import com.blog.util.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -62,6 +64,66 @@ public class UserDAOImpl implements UserDAO{
         }*/
         return user;
     }
+
+    public User getUserByLoginPassword(String login, String password) throws SQLException {
+        Session session = null;
+        List users = new ArrayList<User>();
+        User user = new User();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(User.class);
+            criteria.setMaxResults(1);
+
+            if (login != null && !"".equals(login)) {
+                criteria.add(Restrictions.eq("login", login));
+            }
+            if (password != null && !"".equals(password)) {
+                criteria.add(Restrictions.eq("password", password));
+            }
+
+            users = criteria.list();
+            user = (User) users.get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return user;
+    }
+
+    public Collection getUsersByCriteria(User user) throws SQLException {
+        Session session = null;
+        List users = new ArrayList<User>();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(User.class);
+
+            if (user.getName() != null && !"".equals(user.getName())) {
+                criteria.add(Restrictions.eq("name", user.getName()));
+            }
+            if (user.getAge() != null && user.getAge() > 0) {
+                criteria.add(Restrictions.eq("age", user.getAge()));
+            }
+            if (user.getGender() != null) {
+                criteria.add(Restrictions.eq("gender", user.getGender()));
+            }
+            if (user.getCity() != null && !"".equals(user.getCity())) {
+                criteria.add(Restrictions.eq("city", user.getCity()));
+            }
+
+            users = criteria.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return users;
+    }
+
 
     public Collection getAllUsers() throws SQLException {
         Session session = null;

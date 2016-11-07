@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,22 +35,28 @@ public class User implements Serializable {
     @Column(name = "CITY")
     private String city;
 
+
+    /* SET - LIST */
+
     // TODO: Set ArrayList type.
 //    private Set<Message> messages = new HashSet<Message>(0);
-    private ArrayList<Message> messages = new ArrayList<Message>(0);
+    private List<Message> messages = new ArrayList<Message>(0);
 
     public User() {
     }
 
+
+    /* SET - LIST */
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
 //    public Set<Message> getMessages() {
-    public ArrayList<Message> getMessages() {
+    public List<Message> getMessages() {
         return messages;
     }
 
 //    public void setMessages(Set<Message> messages) {
-    public void setMessages(ArrayList<Message> messages) {
+    public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
 
